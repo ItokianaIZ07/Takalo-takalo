@@ -17,9 +17,8 @@ Login_Admin(Itokiana):
     CONTROLLER:
         adminController:
             FONCTION:
-                -redirect(lien)
                 -verificationAdmin(...)=> appel de la fonction isAdmin(...)
-                -getId(email, password)
+                -getByEmail(email)
     
     INTEGRATION:
         -formulaire Login_Admin(index.php)
