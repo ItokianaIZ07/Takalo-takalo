@@ -12,13 +12,12 @@ class AdminModel{
         $this->db = $db;
     }
 
-    public function isAdmin($username, $email, $password){
-        $stmt = $this->db->prepare("SELECT COUNT(username) FROM Admin WHERE username=:username AND email=:email");
+    public function isAdmin($email){
+        $stmt = $this->db->prepare("SELECT * FROM Admin WHERE email=:email");
         $stmt->execute([
-            ":username"=>$username,
             ":email"=>$email
         ]);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = ($stmt->fetchAll(PDO::FETCH_ASSOC))[0];
         return $result;
     }
 
