@@ -19,23 +19,22 @@ $router->group('', function(Router $router) use ($app) {
     });
 
     $router->post('/admin-verification', function() use($app){
-        $username = $_POST["username"];
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $server_response = AdminController::verificationAdmin($username, $email, $password);
+        $server_response = AdminController::verificationAdmin($email, $password);
         if($server_response){
-            $app->redirect("/admin-page");
+            echo json_encode(["success"=>true]);
         }else{
             $app->redirect("/");
         }
     });
 
-    $router->post('/register', function() use($app){
-        $username = $_POST["username"];
-        $server_response = UserController::addUser($username);
-        echo $server_response;
-    });
+    // $router->post('/register', function() use($app){
+    //     $username = $_POST["username"];
+    //     $server_response = UserController::addUser($username);
+    //     echo $server_response;
+    // });
     
 
 
