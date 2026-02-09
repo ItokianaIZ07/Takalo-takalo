@@ -7,18 +7,18 @@ use flight\Engine;
 use Flight;
 
 class AdminController{
-    public static function verificationAdmin(String $username, String $email, $password){
+    public static function verificationAdmin(String $email, $password){
         $AdminModel = new AdminModel(Flight::db());
-        $admin = $AdminModel->isAdmin($username, $email);
+        $admin = $AdminModel->isAdmin($email);
         if($admin != null && $admin["password"] != null){
             return password_verify($password, $admin["password"]);
         }
         return false;
     }
 
-    public static function getByEmail($username){
+    public static function getByEmail($email){
         $AdminModel = new AdminModel(Flight::db());
-        $admin = $AdminModel->getByEmail($username);
+        $admin = $AdminModel->getByEmail($email);
         return $admin;
     }
 }
