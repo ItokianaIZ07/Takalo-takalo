@@ -13,14 +13,13 @@ class AdminModel{
     }
 
     public function isAdmin($username, $email, $password){
-        $stmt = $this->db->prepare("SELECT COUNT(username) FROM Admin WHERE username=:username AND email=:email AND password=:password");
+        $stmt = $this->db->prepare("SELECT COUNT(username) FROM Admin WHERE username=:username AND email=:email");
         $stmt->execute([
             ":username"=>$username,
-            ":email"=>$email,
-            ":password"=>$password
+            ":email"=>$email
         ]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result > 0 ? true: false;
+        return $result;
     }
 
     public function getByEmail($email){
