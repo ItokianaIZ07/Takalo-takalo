@@ -1,6 +1,6 @@
 <?php
 
-use app\controllers\UserController;
+use app\controllers\AdminController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
@@ -15,7 +15,20 @@ $router->group('', function(Router $router) use ($app) {
 
     // $router->get('/', [ UserController::class, 'getTrajets' ]);
     $router->get('/', function() use($app){
-        $app->render('login', []);
+        $app->render('admin', []);
+    });
+
+    $router->post('/admin-verification', function() use($app){
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $server_response = AdminController::verificationAdmin($username, $email, $password);
+        if($server_response){
+            $app->redirect("/admin-page");
+        }else{
+            $app->redirect("/");
+        }
     });
 
     $router->post('/register', function() use($app){
