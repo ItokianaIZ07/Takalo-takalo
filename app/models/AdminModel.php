@@ -23,5 +23,12 @@ class AdminModel{
         return $result > 0 ? true: false;
     }
 
+    public function getByEmail($email){
+        $stmt = $this->db->prepare("SELECT * FROM Admin WHERE email=:email");
+        $stmt->execute([
+            ":email"=>$email
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 

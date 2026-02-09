@@ -4,7 +4,7 @@ BASE DE DONNEE : MYSQL
 
 Nom de la base: Takalo-Takalo
 
-Login_Admin:
+Login_Admin(Itokiana):
     TABLE:
         admin(id, username, email, password)
 
@@ -12,7 +12,7 @@ Login_Admin:
         adminModel:
             FONCTION:
                 -isAdmin(username, email, password)
-                -getById(email, password)
+                -getByEmail(email)
         
     CONTROLLER:
         adminController:
@@ -29,12 +29,12 @@ Login_Admin:
 
 Manage_category:
     TABLE:
-        category(id, nom)
+        category(id, nom) (Doneli)
         object(id, id_category, id_user, description, name, prix_estimatif)
         image(id, id_object, path)
 
     MODEL:
-        categoryModel:
+        categoryModel(Doneli):
             FONCTION:
                 -addCategory(name)
                 -removeCategory(id)
@@ -56,7 +56,7 @@ Manage_category:
                 -removeImage(id_image)
 
     CONTROLLER:
-        categoryController:
+        categoryController(Doneli):
             FONCTION:
                 Appel des fonctions
                     -addCategory(name)
