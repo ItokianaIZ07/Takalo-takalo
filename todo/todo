@@ -1,0 +1,89 @@
+###################--TODO--##################
+
+BASE DE DONNEE : MYSQL
+
+Nom de la base: Takalo-Takalo
+
+Login_Admin:
+    TABLE:
+        admin(id, username, email, password)
+
+    MODEL:
+        adminModel:
+            FONCTION:
+                -isAdmin(username, email, password)
+                -getById(email, password)
+        
+    CONTROLLER:
+        adminController:
+            FONCTION:
+                -redirect(lien)
+                -verificationAdmin(...)=> appel de la fonction isAdmin(...)
+                -getId(email, password)
+    
+    INTEGRATION:
+        -formulaire Login_Admin(index.php)
+
+    DESIGN:
+        -
+
+Manage_category:
+    TABLE:
+        category(id, nom)
+        object(id, id_category, id_user, description, name, prix_estimatif)
+        image(id, id_object, path)
+
+    MODEL:
+        categoryModel:
+            FONCTION:
+                -addCategory(name)
+                -removeCategory(id)
+                -getById(name)
+                -getAllCategories()
+
+        objectModel:
+            FONCTION:
+                -addnewObject(id_category, name, description, prix_estimatif)
+                -getById(name)
+                -getAllObject()
+                -getByCategory(id_category)
+                -update(id_object)
+                -removeObject(id_object)
+
+        imageModel:
+            FONCTION:
+                -addImage(id_object, name)
+                -removeImage(id_image)
+
+    CONTROLLER:
+        categoryController:
+            FONCTION:
+                Appel des fonctions
+                    -addCategory(name)
+                    -removeCategory(id)
+                    -getById(name)
+                    -getAllCategories()
+
+        objectController:
+            FONCTION:
+                Appel des fonctions    
+                    -addnewObject(id_category, name, description, prix_estimatif)
+                    -getById(name)
+                    -getAllObject()
+                    -getByCategory(id_category)
+                    -update(id_object)
+                    -removeObject(id_object)
+
+        imageController:
+            FONCTION:
+                Appel des fonctions    
+                    -addImage(id_object, name)
+                    -removeImage(id_image)
+
+    INTEGRATION:
+        page:
+            -categories.php:
+                Liste des categories existant:
+            -objets.php:
+                Liste des objets
+                Filtre par categorie
