@@ -89,25 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
             loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion en cours...';
             loginBtn.disabled = true;
             const result = await submit();
+            loginBtn.innerHTML = "Se connecter"
+            loginBtn.disabled = false;
             if(result.success){
+                loginForm.reset();
                 window.location.href = "/admin-home";
             }else{
-                alert("Erreur lors de l'authentification");
-                loginBtn.innerHTML = "Se connecter"
-                loginBtn.disabled = false;
+                alert("Erreur lors de l'authentification\n Mot de passe ou identifiant invalide");
             }
-            
-            // Simulation d'une requête serveur
-            // setTimeout(function() {
-            //     alert(`Connexion réussie!\nEmail: ${emailInput.value}\nMot de passe: ${passwordInput.value.replace(/./g, '*')}`);
-            //     loginBtn.innerHTML = 'Se connecter';
-            //     loginBtn.disabled = false;
-                
-            //     // Réinitialisation du formulaire (dans un cas réel, on redirigerait vers une autre page)
-            //     loginForm.reset();
-            //     emailInput.classList.remove('input-success');
-            //     passwordInput.classList.remove('input-success');
-            // }, 1500);
         }
     });
     
