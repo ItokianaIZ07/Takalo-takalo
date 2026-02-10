@@ -21,4 +21,10 @@ class AdminController{
         $admin = $AdminModel->getByEmail($email);
         return $admin;
     }
+
+    public static function getId($email){
+        $AdminModel = new AdminModel(Flight::db());
+        $admin = $AdminModel->getIdByEmail($email);
+        return $admin;
+    }
 }
