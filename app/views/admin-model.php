@@ -2,6 +2,7 @@
 session_start();
 if(!isset($_SESSION["admin"]) || $_SESSION["admin"] == null){
     header("Location : /");
+    exit;
 }
 
 $title = isset($titlePage) ? $titlePage : "Takalotakalo-Page";
@@ -40,10 +41,18 @@ $contentPath = __DIR__ . '/' . $content . '.php';
                     <span class="notification-badge">3</span>
                 </div>
                 
-                <div class="user-profile">
+                <div class="user-profile" id="userProfile">
                     <div class="user-avatar">AD</div>
                     <div class="user-name">Admin User</div>
+
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="/logout" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Déconnexion
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
         
@@ -174,6 +183,20 @@ $contentPath = __DIR__ . '/' . $content . '.php';
                     }, 300 + (100 * index));
                 });
             }, 500);
+            // Menu profil (déconnexion)
+            const userProfile = document.getElementById('userProfile');
+            const profileDropdown = document.getElementById('profileDropdown');
+
+            userProfile.addEventListener('click', function (e) {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('show');
+            });
+
+            // Fermer le menu si on clique ailleurs
+            document.addEventListener('click', function () {
+                profileDropdown.classList.remove('show');
+            });
+
         });
     </script>
 </body>
