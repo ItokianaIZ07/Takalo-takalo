@@ -59,6 +59,11 @@ $router->group('', function(Router $router) use ($app) {
             "titlePage"=>"Category"
         ]);
     });
+    $router->post('/admin-category-create',function() use($app){
+        $name = $_POST["category_name"];
+        CategoryController::addCategory($name);
+        $app->redirect('/admin-categories');
+    });
     $router->get('/logout', function() use($app){
         session_start();
         session_destroy();

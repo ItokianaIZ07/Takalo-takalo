@@ -1,10 +1,6 @@
 <?php
 // Exemple de données (à remplacer plus tard par la BDD)
-$categories = [
-    ["id" => 1, "name" => "Électronique", "count" => 12],
-    ["id" => 2, "name" => "Vêtements", "count" => 8],
-    ["id" => 3, "name" => "Livres", "count" => 5],
-];
+    var_dump($categories);
 ?>
 
 <div class="page-header">
