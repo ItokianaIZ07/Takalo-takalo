@@ -50,6 +50,14 @@ $router->group('', function(Router $router) use ($app) {
             "titlePage"=>"Object"
         ]);
     });
+    $router->get('/logout', function() use($app){
+        session_start();
+        session_destroy();
+        $app->redirect('/');
+    });
+    $router->get('/*', function() use($app){
+        $app->render('404', []);
+    });
 
     // $router->post('/register', function() use($app){
     //     $username = $_POST["username"];
