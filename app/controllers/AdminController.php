@@ -10,8 +10,11 @@ class AdminController{
     public static function verificationAdmin(String $email, $password){
         $AdminModel = new AdminModel(Flight::db());
         $admin = $AdminModel->isAdmin($email);
-        if($admin != null && $admin["password"] != null){
-            return password_verify($password, $admin["password"]);
+        if(isset($admin[0])){
+            $admin = $admin[0];
+            if($admin != null && $admin["password"] != null){
+                return password_verify($password, $admin["password"]);
+            }
         }
         return false;
     }

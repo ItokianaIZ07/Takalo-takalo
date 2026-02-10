@@ -17,7 +17,7 @@ class AdminModel{
         $stmt->execute([
             ":email"=>$email
         ]);
-        $result = ($stmt->fetchAll(PDO::FETCH_ASSOC))[0];
+        $result = ($stmt->fetchAll(PDO::FETCH_ASSOC));
         return $result;
     }
 
