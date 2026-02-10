@@ -24,18 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Toggle des descriptions
+    // Toggle des descriptions (ouvrir / fermer)
     const descriptionToggles = document.querySelectorAll('.description-toggle');
+
     descriptionToggles.forEach(toggle => {
-        toggle.addEventListener('change', function(e) {
+        toggle.addEventListener('change', function (e) {
             e.stopPropagation();
-            const descriptionId = `description-${this.dataset.objectId}`;
-            const description = document.getElementById(descriptionId);
-            
+
+            const description = document.getElementById(
+                `description-${this.dataset.objectId}`
+            );
+
             if (this.checked) {
+                // Ouvrir
                 description.style.maxHeight = description.scrollHeight + 'px';
+            } else {
+                // Fermer
+                description.style.maxHeight = '0';
             }
         });
-    });
+});
+
+
 
     // Bouton modifier
     const editButtons = document.querySelectorAll('.edit-object');
