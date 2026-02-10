@@ -3,7 +3,7 @@ use Takalotakalo;
 
 CREATE TABLE Admin(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(150),
+    email VARCHAR(150) UNIQUE,
     password VARCHAR(280)
 );
 
