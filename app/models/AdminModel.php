@@ -22,7 +22,15 @@ class AdminModel{
     }
 
     public function getByEmail($email){
-        $stmt = $this->db->prepare("SELECT * FROM Admin WHERE email=:email");
+        $stmt = $this->db->prepare("SELECT id, email FROM Admin WHERE email=:email");
+        $stmt->execute([
+            ":email"=>$email
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getIdByEmail(String $email){
+        $stmt = $this->db->prepare("SELECT id FROM Admin WHERE email=:email");
         $stmt->execute([
             ":email"=>$email
         ]);
