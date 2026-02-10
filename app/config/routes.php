@@ -24,9 +24,15 @@ $router->group('', function(Router $router) use ($app) {
 
         $server_response = AdminController::verificationAdmin($email, $password);
         if($server_response){
-            echo json_encode(["success"=>true]);
+            echo json_encode([
+                "success"=>true,
+                "error"=>false
+            ]);
         }else{
-            $app->redirect("/");
+            echo json_encode([
+                "success"=>false,
+                "error"=>true
+            ]);
         }
     });
 
