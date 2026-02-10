@@ -24,7 +24,11 @@ $contentPath = __DIR__ . '/' . $content . '.php';
     <?php if($content == "admin-objects") { ?>
         <link rel="stylesheet" href="/assets/css/object.css">
         <script src="/assets/js/object.js" defer></script>
+    <?php } else if($content == "admin-categories") { ?>
+        <link rel="stylesheet" href="/assets/css/admin-categories.css">
+        <script src="/assets/js/admin-categories.js" defer></script>
     <?php } ?>
+
     <title>TakaloAdmin-<?= $title ?></title>
 </head>
 <body>
@@ -86,7 +90,7 @@ $contentPath = __DIR__ . '/' . $content . '.php';
         </nav>
     </header>
     <main class="container">
-        <?php include $contentPath ?>
+        <?php include $contentPath; ?>
     </main>
     <footer class="footer">
         <p>© 2023 Takalotakalo Admin. Plateforme d'échange et de vente. Tous droits réservés.</p>
