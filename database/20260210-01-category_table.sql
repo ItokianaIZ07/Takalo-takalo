@@ -1,0 +1,4 @@
+CREATE TABLE Category(
+    id INT PRIMARY_KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
