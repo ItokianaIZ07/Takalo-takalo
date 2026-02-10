@@ -44,6 +44,12 @@ $router->group('', function(Router $router) use ($app) {
             "titlePage"=>"Home"
         ]);
     });
+    $router->get('/admin-objects', function() use($app){
+        $app->render('admin-model', [
+            "contentPage"=>"admin-objects",
+            "titlePage"=>"Object"
+        ]);
+    });
 
     // $router->post('/register', function() use($app){
     //     $username = $_POST["username"];
