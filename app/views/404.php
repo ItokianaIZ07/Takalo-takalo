@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>404 - Page non trouvée</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/style-404.css">
 </head>
 <body>
     <div class="container">
