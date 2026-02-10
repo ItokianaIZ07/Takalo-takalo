@@ -131,10 +131,10 @@ $contentPath = __DIR__ . '/' . $content . '.php';
                 });
             });
             
-            // Bouton "Ajouter un objet"
-            addObjectBtn.addEventListener('click', function() {
-                alert("Fonctionnalité d'ajout d'objet - À implémenter avec un formulaire");
-            });
+            // // Bouton "Ajouter un objet"
+            // addObjectBtn.addEventListener('click', function() {
+            //     alert("Fonctionnalité d'ajout d'objet - À implémenter avec un formulaire");
+            // });
             
             // Gestion des boutons d'action
             const actionButtons = document.querySelectorAll('.icon-btn');

@@ -64,6 +64,10 @@ $router->group('', function(Router $router) use ($app) {
         CategoryController::addCategory($name);
         $app->redirect('/admin-categories');
     });
+    $router->get('/admin-categories-delete/@id', function($id) use($app){
+        CategoryController::removeCategory($id);
+        $app->redirect('/admin-categories');
+    });
     $router->get('/logout', function() use($app){
         session_start();
         session_destroy();
