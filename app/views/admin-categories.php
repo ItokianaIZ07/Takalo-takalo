@@ -1,8 +1,3 @@
-<?php
-// Exemple de données (à remplacer plus tard par la BDD)
-    var_dump($categories);
-?>
-
 <div class="page-header">
     <div class="page-title">
         <h2>Catégories</h2>
@@ -29,7 +24,7 @@
                     </div>
                     <div>
                         <div class="category-name"><?= htmlspecialchars($cat["name"]) ?></div>
-                        <div class="category-count"><?= $cat["count"] ?> objets</div>
+                        <div class="category-count">0 objets</div>
                     </div>
                 </div>
 
@@ -40,7 +35,7 @@
                     </a>
 
                     <!-- Supprimer -->
-                    <a href="/admin-categories-delete?id=<?= $cat["id"] ?>" 
+                    <a href="/admin-categories-delete/<?= $cat["id"] ?>" 
                        class="icon-btn danger" 
                        title="Supprimer"
                        onclick="return confirm('Supprimer cette catégorie ?');">
@@ -51,7 +46,6 @@
         <?php endforeach; ?>
     </ul>
 </div>
-<!-- Modal Ajouter Catégorie -->
 <div class="modal-overlay" id="categoryModal">
     <div class="modal-box">
         <div class="modal-header">
@@ -59,7 +53,7 @@
             <button class="modal-close" id="closeCategoryModal">&times;</button>
         </div>
 
-        <form action="/admin-categories-create" method="post" class="modal-body">
+        <form class="modal-body">
             <div class="form-group">
                 <label for="category_name">Nom de la catégorie</label>
                 <input type="text" name="category_name" id="category_name" required placeholder="Ex: Informatique">

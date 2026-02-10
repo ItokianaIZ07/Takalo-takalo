@@ -13,10 +13,8 @@ class CategoryModel{
     }
 
     public function createCategory($name){
-        $stmt = $this->db->prepare("INSERT INTO Category(name) VALUES(:name)");
-        $stmt->execute([
-            ":name"=>$name
-        ]);
+        $stmt = $this->db->prepare("INSERT INTO Category(name) VALUES(?)");
+        $stmt->execute([$name]);
     }
 
     public function getAll(){
