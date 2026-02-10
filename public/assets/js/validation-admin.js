@@ -91,6 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await submit();
             if(result.success){
                 window.location.href = "/admin-home";
+            }else{
+                alert("Erreur lors de l'authentification");
+                loginBtn.innerHTML = "Se connecter"
+                loginBtn.disabled = false;
             }
             
             // Simulation d'une requête serveur
