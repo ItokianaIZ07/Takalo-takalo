@@ -1,6 +1,7 @@
 <?php
 
 use app\controllers\AdminController;
+use app\controllers\CategoryController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
@@ -51,8 +52,10 @@ $router->group('', function(Router $router) use ($app) {
         ]);
     });
     $router->get('/admin-categories', function() use($app){
+        $categories = CategoryController::getAllCategory();
         $app->render('admin-model', [
             "contentPage"=>"admin-categories",
+            "categories"=>$categories,
             "titlePage"=>"Category"
         ]);
     });
