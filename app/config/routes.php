@@ -39,7 +39,10 @@ $router->group('', function(Router $router) use ($app) {
     });
 
     $router->get('/admin-home', function() use($app){
-        $app->render('admin-home', []);
+        $app->render('admin-model', [
+            "contentPage"=>"admin-dashboard",
+            "titlePage"=>"Home"
+        ]);
     });
 
     // $router->post('/register', function() use($app){
