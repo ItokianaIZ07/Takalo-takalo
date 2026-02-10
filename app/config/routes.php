@@ -24,6 +24,8 @@ $router->group('', function(Router $router) use ($app) {
 
         $server_response = AdminController::verificationAdmin($email, $password);
         if($server_response){
+            session_start();
+            $_SESSION["admin"] = AdminController::getId($email)[0];
             echo json_encode([
                 "success"=>true,
                 "error"=>false
@@ -34,6 +36,10 @@ $router->group('', function(Router $router) use ($app) {
                 "error"=>true
             ]);
         }
+    });
+
+    $router->get('/admin-home', function() use($app){
+        $app->render('admin-home', []);
     });
 
     // $router->post('/register', function() use($app){
