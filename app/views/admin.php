@@ -13,7 +13,7 @@
         <div class="left-panel">
             <div class="logo">
                 <i class="fas fa-exchange-alt"></i>
-                <h1>Takala<span>takalo</span> Admin</h1>
+                <h1>Takalo-<span>takalo</span> Admin</h1>
             </div>
             
             <div class="welcome-text">
