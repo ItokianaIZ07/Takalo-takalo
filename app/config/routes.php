@@ -50,6 +50,12 @@ $router->group('', function(Router $router) use ($app) {
             "titlePage"=>"Object"
         ]);
     });
+    $router->get('/admin-categories', function() use($app){
+        $app->render('admin-model', [
+            "contentPage"=>"admin-categories",
+            "titlePage"=>"Category"
+        ]);
+    });
     $router->get('/logout', function() use($app){
         session_start();
         session_destroy();
