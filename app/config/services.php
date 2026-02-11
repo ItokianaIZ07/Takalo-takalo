@@ -88,7 +88,7 @@ if (Debugger::$showBar === true && php_sapi_name() !== 'cli') {
 Flight::register('db', PDO::class,array(
 	'mysql:host=' . $config['database']['host']. ';dbname=' .$config['database']['dbname'] . ';charset=utf8',
 	'root',
-	''
+	$config['database']['password']
 ));
 
 // Register Flight::db() service
