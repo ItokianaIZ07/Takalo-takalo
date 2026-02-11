@@ -10,7 +10,19 @@
         <h1>404</h1>
         <h2>Page non trouvée</h2>
         <p>Désolé, la page que vous recherchez n’existe pas ou a été déplacée.</p>
-        <a href="/" class="btn">Retour à l’accueil</a>
+        <a href="/" onclick="goBack(event)" class="btn">Retour à l’accueil</a>
     </div>
+
+    <script>
+        function goBack(event) {
+            event.preventDefault();
+            // utiliser l'historique du navigateur
+            if (document.referrer && document.referrer !== '') {
+                window.history.back();
+            } else {
+                window.location.href = '/';
+            }
+        }
+    </script>
 </body>
 </html>
