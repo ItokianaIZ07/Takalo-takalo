@@ -3,18 +3,24 @@
 namespace app\controllers;
 
 use app\models\ObjetModel;
+use app\models\ImageModel;
 use flight\Engine;
 use Flight;
 
 class ObjetController{
     public static function addnewObject($id_category, $name, $description, $prix_estimatif, $id_user){
         $ObjetModel = new ObjetModel(Flight::db());
-        $ObjetModel->addnewObject($id_category, $name, $description, $prix_estimatif, $id_user);
+        return $ObjetModel->addnewObject($id_category, $name, $description, $prix_estimatif, $id_user);
     }
 
-    public static function getById($name){
+    public static function getById($id){
         $ObjetModel = new ObjetModel(Flight::db());
-        return $ObjetModel->getById($name);
+        return $ObjetModel->getById($id);
+    }
+    
+    public static function getByName($name){
+        $ObjetModel = new ObjetModel(Flight::db());
+        return $ObjetModel->getByName($name);
     }
 
     public static function getAllObject(){
@@ -25,5 +31,15 @@ class ObjetController{
     public static function getByCategory($id_category){
         $ObjetModel = new ObjetModel(Flight::db());
         return $ObjetModel->getByCategory($id_category);
+    }
+    
+    public static function updateObject($id, $data){
+        $ObjetModel = new ObjetModel(Flight::db());
+        return $ObjetModel->updateObject($id, $data);
+    }
+    
+    public static function removeObject($id){
+        $ObjetModel = new ObjetModel(Flight::db());
+        return $ObjetModel->removeObject($id);
     }
 }
