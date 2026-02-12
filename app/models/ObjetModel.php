@@ -81,4 +81,17 @@ class ObjetModel{
         $stmt = $this->db->prepare("DELETE FROM Objet WHERE idObjet = ?");
         return $stmt->execute([$id]);
     }
+
+    public function addnewObject($id_category, $name, $description, $prix_estimatif, $id_user){
+        $stmt = $this->db->prepare("INSERT INTO Objet(idCategorie, nomObjet, description, prix_estimatif, idUser)
+            VALUES(?, ?, ?, ?, ?)");
+        $stmt->execute([$id_category, $name, $description, $prix_estimatif, $id_user]);
+    }
+
+    public function countObjectByCategorie($id){
+        $stmt = $this->db->prepare("SELECT COUNT(*) as count FROM Objet WHERE idCategorie = ?");
+        $stmt->execute([$id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] ?? 0;
+    }
 }
