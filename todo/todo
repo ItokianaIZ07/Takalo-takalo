@@ -42,7 +42,7 @@ Manage_category:
 
         objectModel:
             FONCTION:
-                -addnewObject(id_category, name, description, prix_estimatif)
+                -addnewObject(id_category, name, description, prix_estimatif, id_user)
                 -getById(name)
                 -getAllObject()
                 -getByCategory(id_category)
