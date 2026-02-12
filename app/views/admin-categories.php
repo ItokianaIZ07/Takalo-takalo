@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <div class="category-name"><?= htmlspecialchars($cat["name"]) ?></div>
-                        <div class="category-count">0 objets</div>
+                        <div class="category-count"><?= $cat["countObject"] ?> objets</div>
                     </div>
                 </div>
 
