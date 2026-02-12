@@ -94,7 +94,7 @@ $router->group('', function(Router $router) use ($app) {
         // Route pour supprimer un objet
     $router->get('/admin-objects-delete/@id', function($id) use($app){
         // Implémenter la suppression dans ObjetController
-        // ObjetController::removeObject($id);
+        ObjetController::removeObject($id);
         $app->redirect('/admin-objects');
     });
     

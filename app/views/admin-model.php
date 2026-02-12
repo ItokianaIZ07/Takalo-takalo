@@ -24,7 +24,7 @@ $contentPath = __DIR__ . '/' . $content . '.php';
     <?php if($content == "admin-objects") { ?>
         <link rel="stylesheet" href="/assets/css/object.css">
         <script src="/assets/js/object.js" defer></script>
-        <script src="/assets/js/admin-objects.js" defer></script>
+        <!-- <script src="/assets/js/admin-objects.js" defer></script> -->
     <?php } else if($content == "admin-categories") { ?>
         <link rel="stylesheet" href="/assets/css/admin-categories.css">
         <script src="/assets/js/admin-categories.js" defer></script>

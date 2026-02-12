@@ -12,11 +12,7 @@ class ObjetModel{
         $this->db = $db;
     }
 
-    public function addnewObject($id_category, $name, $description, $prix_estimatif, $id_user){
-        $stmt = $this->db->prepare("INSERT INTO Objet(idCategorie, idUser, nomObjet, description, prix_estimatif) VALUES(?, ?, ?, ?, ?)");
-        $stmt->execute([$id_category, $id_user, $name, $description, $prix_estimatif]);
-        return $this->db->lastInsertId();
-    }
+  
 
     public function getById($id){
         $stmt = $this->db->prepare("SELECT idObjet, idCategorie, idUser, nomObjet, description, prix_estimatif FROM Objet WHERE idObjet = :id");
