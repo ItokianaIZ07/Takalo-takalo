@@ -107,6 +107,10 @@ $router->group('', function(Router $router) use ($app) {
    
     $router->get('/admin-categories', function() use($app){
         $categories = CategoryController::getAllCategory();
+        foreach($categories as &$cat){
+            $count = ObjetController::countObjectPerCategory($cat["id"]);
+            $cat["countObject"] = $count;
+        }
         $app->render('admin-model', [
             "contentPage"=>"admin-categories",
             "categories"=>$categories,
