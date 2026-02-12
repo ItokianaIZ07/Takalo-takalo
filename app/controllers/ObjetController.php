@@ -42,4 +42,10 @@ class ObjetController{
         $ObjetModel = new ObjetModel(Flight::db());
         return $ObjetModel->removeObject($id);
     }
+
+    public static function countObjectPerCategory($id){
+        $ObjetModel = new ObjetModel(Flight::db());
+        $count = $ObjetModel->countObjectByCategorie($id);
+        return $count;
+    }
 }
