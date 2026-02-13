@@ -171,7 +171,9 @@ $router->group('', function(Router $router) use ($app) {
         session_start();
         $user = UserController::getByEmail($_SESSION["user"] ?? "")[0] ?? null;
         $app->render('user-model', [
-            "user" => $user
+            "user" => $user,
+            "contentPage" => "user-home",
+            "titlePage" => "Home"
         ]);
     });
 

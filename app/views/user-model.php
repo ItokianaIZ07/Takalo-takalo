@@ -1,3 +1,15 @@
+<?php
+ini_set('display_errors', 1);
+if(!isset($_SESSION["user"]) || $_SESSION["user"] == null){
+    header("Location : /login-user");
+    exit;
+}
+
+$title = isset($titlePage) ? $titlePage : "Takalotakalo-Page";
+$content = isset($contentPage) || $contentPage !== null ? $contentPage : "404";
+$contentPath = __DIR__ . '/' . $content . '.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +22,8 @@
 
     <!-- Ton CSS -->
     <link rel="stylesheet" href="/assets/css/user-model.css">
-</head>
+    <link rel="stylesheet" href="/assets/css/<?= $content ?>.css">
+</head> 
 <body>
 
 <!-- Header fixe (titre + user seulement) -->
@@ -20,7 +33,7 @@
         <div class="site-title">Takalo<span>takalo</span></div>
     </div>
     <div class="user-profile" id="userProfile">
-        <div class="user-avatar">U</div>
+        <div class="user-avatar"><?= substr($user["username"] ?? "U", 0, 1) ?></div>
         <div class="user-name"><?php echo $user["username"] ?? "Utilisateur"; ?></div>
 
         <div class="profile-dropdown" id="profileDropdown">
@@ -52,89 +65,7 @@
 
 <!-- Contenu principal -->
 <main class="main-content">
-    <div class="container">
-
-        <div class="page-header">
-            <div class="page-title">
-                <h2>Mes objets</h2>
-                <p>Liste des objets que tu possèdes actuellement</p>
-            </div>
-            <div class="page-actions">
-                <button class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Ajouter un objet
-                </button>
-            </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon blue"><i class="fas fa-box"></i></div>
-                </div>
-                <div class="stat-value">12</div>
-                <div class="stat-label">Objets possédés</div>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon green"><i class="fas fa-right-left"></i></div>
-                </div>
-                <div class="stat-value">3</div>
-                <div class="stat-label">Échanges réalisés</div>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
-                </div>
-                <div class="stat-value">2</div>
-                <div class="stat-label">Échanges en attente</div>
-            </div>
-        </div>
-
-        <!-- Section table -->
-        <div class="section">
-            <div class="section-header">
-                <h3 class="section-title">Derniers objets ajoutés</h3>
-            </div>
-
-            <div class="table-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Objet</th>
-                            <th>Catégorie</th>
-                            <th>Statut</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="item-name">
-                                    <div class="item-icon"><i class="fas fa-mobile-alt"></i></div>
-                                    Téléphone
-                                </div>
-                            </td>
-                            <td>Électronique</td>
-                            <td><span class="status active">Disponible</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="item-name">
-                                    <div class="item-icon"><i class="fas fa-book"></i></div>
-                                    Livre
-                                </div>
-                            </td>
-                            <td>Culture</td>
-                            <td><span class="status pending">En échange</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
+    <?php include $contentPath; ?>    
 </main>
 
 </body>
