@@ -167,11 +167,34 @@ $router->group('', function(Router $router) use ($app) {
             ]);
     });
 
+    // $router->get("/user-home", function() use($app){
+    //     session_start();
+    //     $user = UserController::getByEmail($_SESSION["user"] ?? "")[0] ?? null;
+    //     $app->render('user-model', [
+    //         "user" => $user,
+    //         "contentPage" => "user-home",
+    //         "titlePage" => "Home"
+    //     ]);
+    // });
+
     $router->get("/user-home", function() use($app){
         session_start();
-        $user = UserController::getByEmail($_SESSION["user"] ?? "")[0] ?? null;
+        
+        // Récupérer l'utilisateur connecté
+        $userEmail = $_SESSION["user"] ?? "";
+        $user = UserController::getByEmail($userEmail)[0] ?? null;
+        
+        if (!$user) {
+            $app->redirect('/login-user');
+            return;
+        }
+        
+        // Récupérer les statistiques de l'utilisateur
+        $stats = \app\controllers\PropositionController::getUserStats($user['id']);
+        
         $app->render('user-model', [
             "user" => $user,
+            "stats" => $stats,
             "contentPage" => "user-home",
             "titlePage" => "Home"
         ]);
