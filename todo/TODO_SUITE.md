@@ -1,5 +1,5 @@
 TODOLIST (FRONTOFFICE(utilisateur)):
-    - Inscription et login(Brandon) :
+    - Inscription et login(Doneli and Itokiana) :
         - Base :
             - Table : user(id, username, email, password)
         - Model :
@@ -11,7 +11,8 @@ TODOLIST (FRONTOFFICE(utilisateur)):
             - include : header and footer
         - DESIGNE :
             - css
-            - js
+            - js 
+        - Liste de toute les utilisateurs
     - Gestion des objets(Itokiana) :
         - Base :
             - Table : Object(id, id_category, id_user, description, name, prix_estimatif)
@@ -31,8 +32,8 @@ TODOLIST (FRONTOFFICE(utilisateur)):
             - js
     - Gestion des echanges(Doneli) :
         - Lister les objects des autres :
-            - model :
-                - function(ObjectModel) : findUserObject
+            - [OK] model :
+                - [OK] function(ObjectModel) : findUserObject
             - controller : 
                 - function(ObjectController) : getUserObject
             - Integration :
