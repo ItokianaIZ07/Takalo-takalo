@@ -74,9 +74,8 @@
                 <button type="submit" class="btn btn-primary" id="loginBtn">Se connecter</button>
                 
                 <div class="login-links">
-                    <a href="#" id="resetPassword">Mot de passe oublié ?</a>
-                    <a href="#" id="ssoLogin">Connexion SSO</a>
-                    <a href="#" id="signUp">Créer un compte</a>
+                    <a href="/" id="admin">Se connecter en tant qu'admin</a>
+                    <a href="/login-user" id="signin">Vous avez deja un compte ?</a>
                 </div>
             </form>
             
