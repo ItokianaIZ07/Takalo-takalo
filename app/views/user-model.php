@@ -19,10 +19,9 @@
         <i class="fas fa-exchange-alt logo-icon"></i>
         <div class="site-title">Takalo<span>takalo</span></div>
     </div>
-
     <div class="user-profile" id="userProfile">
         <div class="user-avatar">U</div>
-        <div class="user-name">Utilisateur</div>
+        <div class="user-name"><?php echo $user["username"] ?? "Utilisateur"; ?></div>
 
         <div class="profile-dropdown" id="profileDropdown">
             <a href="/logout" class="dropdown-item">

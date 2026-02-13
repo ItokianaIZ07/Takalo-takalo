@@ -160,7 +160,7 @@ $router->group('', function(Router $router) use ($app) {
 
         UserController::addUser($username, $email, $password);
             session_start();
-            $_SESSION["user"] = UserController::getByEmail($email)[0]['id'];
+            $_SESSION["user"] = UserController::getByEmail($email)[0]['email'];
             echo json_encode([
                 "success"=>true,
                 "error"=>false
@@ -168,7 +168,11 @@ $router->group('', function(Router $router) use ($app) {
     });
 
     $router->get("/user-home", function() use($app){
-        $app->render('user-model', []);
+        session_start();
+        $user = UserController::getByEmail($_SESSION["user"] ?? "")[0] ?? null;
+        $app->render('user-model', [
+            "user" => $user
+        ]);
     });
 
     $router->post('/user-verification', function() use($app){
@@ -178,7 +182,7 @@ $router->group('', function(Router $router) use ($app) {
         $server_response = UserController::verifyUser($email, $password);
         if($server_response){
             session_start();
-            $_SESSION["user"] = UserController::getByEmail($email)[0]['id'];
+            $_SESSION["user"] = UserController::getByEmail($email)[0]['email'];
             echo json_encode([
                 "success"=>true,
                 "error"=>false
