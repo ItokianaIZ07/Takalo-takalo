@@ -144,6 +144,10 @@ $router->group('', function(Router $router) use ($app) {
         $app->redirect('/');
     });
 
+    $router->get('/login-user', function() use($app){
+        $app->render('login-user', []);
+    });
+
     $router->get('/*', function() use($app){
         $app->render('404', []);
     });
