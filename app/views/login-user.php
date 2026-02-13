@@ -13,12 +13,12 @@
         <div class="left-panel">
             <div class="logo">
                 <i class="fas fa-exchange-alt"></i>
-                <h1>Takalo-<span>takalo</span> Admin</h1>
+                <h1>Takalo-<span>takalo</span> User</h1>
             </div>
             
             <div class="welcome-text">
-                <h2>Bienvenue sur la plateforme d'administration</h2>
-                <p>Gérez vos échanges et ventes en toute simplicité. Accédez à votre tableau de bord pour suivre les transactions, gérer les utilisateurs et analyser les performances.</p>
+                <h2>Bienvenue sur la plateforme d'echange</h2>
+                <p>Gérez vos échanges et ventes en toute simplicité.</p>
             </div>
             
             <div class="features">
@@ -40,7 +40,7 @@
         <div class="right-panel">
             <div class="login-header">
                 <h2>Connexion à votre compte</h2>
-                <p>Entrez vos identifiants pour accéder à votre espace d'administration</p>
+                <p>Entrez vos identifiants pour accéder à votre espace d'echange</p>
             </div>
             
             <form id="loginForm">
@@ -65,9 +65,8 @@
                 <button type="submit" class="btn btn-primary" id="loginBtn">Se connecter</button>
                 
                 <div class="login-links">
-                    <a href="#" id="resetPassword">Mot de passe oublié ?</a>
-                    <a href="#" id="ssoLogin">Connexion SSO</a>
-                    <a href="/login-user" id="signUp">Se connecter en tant qu'utilisateur</a>
+                    <a href="/" id="admin">Se connecter en tant qu'Admin</a>
+                    <a href="#" id="signUp">Créer un compte</a>
                 </div>
             </form>
             
