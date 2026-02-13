@@ -6,7 +6,7 @@
     <title>Takalotakalo Admin - Connexion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/adminLogin.css">
-    <script src="/assets/js/validation-admin.js" defer></script>
+    <script src="/assets/js/validation-user.js" defer></script>
 </head>
 <body>
     <div class="login-container">

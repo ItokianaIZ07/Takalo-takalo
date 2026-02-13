@@ -171,6 +171,26 @@ $router->group('', function(Router $router) use ($app) {
         $app->render('user-model', []);
     });
 
+    $router->post('/user-verification', function() use($app){
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $server_response = UserController::verifyUser($email, $password);
+        if($server_response){
+            session_start();
+            $_SESSION["user"] = UserController::getByEmail($email)[0]['id'];
+            echo json_encode([
+                "success"=>true,
+                "error"=>false
+            ]);
+        }else{
+            echo json_encode([
+                "success"=>false,
+                "error"=>true
+            ]);
+        }
+    });
+
     $router->get('/*', function() use($app){
         $app->render('404', []);
     });
