@@ -100,4 +100,16 @@ class ObjetModel{
         $stmt->execute([$id_user]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    //maka objet farany user miarak @categorie any
+    public function getUserRecentObjects($id_user) {
+        $stmt = $this->db->prepare("SELECT o.idObjet, o.nomObjet, c.name as categorie, 
+            'Disponible' as statut
+            FROM Objet o LEFT JOIN Category c ON o.idCategorie = c.id 
+            WHERE o.idUser = ? ORDER BY o.idObjet DESC
+        ");
+        $stmt->execute([$id_user]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
