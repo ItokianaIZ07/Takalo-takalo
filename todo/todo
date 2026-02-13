@@ -29,8 +29,8 @@ Login_Admin(Itokiana):
 Manage_category:
     TABLE:
         category(id, nom) (Doneli)
-        object(id, id_category, id_user, description, name, prix_estimatif)
-        image(id, id_object, path)
+        object(id, id_category, id_user, description, name, prix_estimatif) (Brandon)
+        image(id, id_object, path) (Brandon)
 
     MODEL:
         categoryModel(Doneli):
@@ -40,7 +40,7 @@ Manage_category:
                 -getById(name)
                 -getAllCategories()
 
-        objectModel:
+        objectModel(Brandon):
             FONCTION:
                 -addnewObject(id_category, name, description, prix_estimatif, id_user)
                 -getById(name)
@@ -49,7 +49,7 @@ Manage_category:
                 -update(id_object)
                 -removeObject(id_object)
 
-        imageModel:
+        imageModel(Brandon):
             FONCTION:
                 -addImage(id_object, name)
                 -removeImage(id_image)
@@ -63,7 +63,7 @@ Manage_category:
                     -getById(name)
                     -getAllCategories()
 
-        objectController:
+        objectController(Brandon):
             FONCTION:
                 Appel des fonctions    
                     -addnewObject(id_category, name, description, prix_estimatif)
@@ -73,7 +73,7 @@ Manage_category:
                     -update(id_object)
                     -removeObject(id_object)
 
-        imageController:
+        imageController(Brandon):
             FONCTION:
                 Appel des fonctions    
                     -addImage(id_object, name)
@@ -83,6 +83,6 @@ Manage_category:
         page:
             -categories.php:
                 Liste des categories existant:
-            -objets.php:
+            -objets.php(Brandon):
                 Liste des objets
                 Filtre par categorie
