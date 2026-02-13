@@ -37,6 +37,11 @@ class ObjetController{
         $ObjetModel = new ObjetModel(Flight::db());
         return $ObjetModel->updateObject($id, $data);
     }
+
+    public static function getUserObjects($id_user){
+        $objetModel = new ObjetModel(Flight::db());
+        return $objetModel->findUserObjects($id_user);
+    }
     
     public static function removeObject($id){
         $ObjetModel = new ObjetModel(Flight::db());
