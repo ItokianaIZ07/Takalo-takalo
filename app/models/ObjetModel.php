@@ -112,4 +112,11 @@ class ObjetModel{
         $stmt->execute([$id_user]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function countUserObjects($id_user) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) as count FROM Objet WHERE idUser = ?");
+        $stmt->execute([$id_user]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] ?? 0;
+    }
 }
