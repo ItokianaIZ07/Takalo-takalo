@@ -94,4 +94,10 @@ class ObjetModel{
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'] ?? 0;
     }
+
+    public function findUserObjects($id_user){
+        $stmt = $this->db->prepare("SELECT idObjet, idCategorie, nomObjet, description, prix_estimatif FROM Objet WHERE idUser = ? ORDER BY idObjet DESC");
+        $stmt->execute([$id_user]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
