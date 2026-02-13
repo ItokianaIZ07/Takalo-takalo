@@ -35,4 +35,41 @@ class PropositionController {
         $stmt = Flight::db()->prepare("UPDATE Proposition SET Status = ? WHERE id = ?");
         return $stmt->execute([$status, $id]);
     }
+
+    //maka proposition rehetra
+    public static function getAllProposition() {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->findAllProposition();
+    }
+
+    public static function getPropositionById($id) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->findPropositionById($id);
+    }
+
+
+    public static function getInfoProposition($id) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->findInfoProposition($id);
+    }
+
+    public static function acceptProposition($id) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->acceptProposition($id);
+    }
+
+    public static function declineProposition($id) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->declineProposition($id);
+    }
+
+    public static function removeProposition($id) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->removeProposition($id);
+    }
+
+    public static function updateProposition($id, $idObject1 = null, $idObject2 = null, $status = null) {
+        $propositionModel = new PropositionModel(Flight::db());
+        return $propositionModel->updateProposition($id, $idObject1, $idObject2, $status);
+    }
 }
