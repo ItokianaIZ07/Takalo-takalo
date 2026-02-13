@@ -1,5 +1,5 @@
 TODOLIST (FRONTOFFICE(utilisateur)):
-    - Inscription et login :
+    - Inscription et login(Brandon) :
         - Base :
             - Table : user(id, username, email, password)
         - Model :
@@ -12,7 +12,7 @@ TODOLIST (FRONTOFFICE(utilisateur)):
         - DESIGNE :
             - css
             - js
-    - Gestion des objets :
+    - Gestion des objets(Itokiana) :
         - Base :
             - Table : Object(id, id_category, id_user, description, name, prix_estimatif)
                       image(id, id_object, path)
@@ -29,5 +29,32 @@ TODOLIST (FRONTOFFICE(utilisateur)):
         - DESIGNE :
             - css
             - js
-    - Proposion d'echange :
-        
+    - Gestion des echanges(Doneli) :
+        - Lister les objects des autres :
+            - model :
+                - function(ObjectModel) : findUserObject
+            - controller : 
+                - function(ObjectController) : getUserObject
+            - Integration :
+                - views : user-objects(affichage des objects d'un utilisateur)
+            - Design :
+                - CSS
+                - JS
+        - Fiche object :
+            - Integration :
+                - views : fiche-object(Afficher les informations d'un object)
+        - Propostion d'echange :
+            - Base :
+                - Table : Proposition(id, idObject1, idObject2, Status)
+                - views : InfoProposition (proposition JOIN object JOIN User)
+            - Model :
+                - Page et fonction : PropostionModel(findAllProposition, findPropositionById, findInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition)
+            - Controller :
+                - Page et fonction : PropositionController(getAllProposition, getPropositionById, getInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition)
+            - Integration :
+                - views : fiche-proposition(Fiche pour la proposition d'echange d'un object)
+            - Design : 
+                - CSS
+                - JS
+        - Gestion des echanges :
+            - views : all-proposition(Afficher toute les propositions), appliquer les fonction accept or decline proposition
