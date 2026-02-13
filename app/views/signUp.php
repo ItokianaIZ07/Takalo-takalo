@@ -6,14 +6,14 @@
     <title>Takalotakalo Admin - Connexion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/adminLogin.css">
-    <script src="/assets/js/validation-admin.js" defer></script>
+    <script src="/assets/js/validation-signUp.js" defer></script>
 </head>
 <body>
     <div class="login-container">
         <div class="left-panel">
             <div class="logo">
                 <i class="fas fa-exchange-alt"></i>
-                <h1>Takalo-<span>takalo</span> User</h1>
+                <h1>Takalo-<span>takalo</span> Utilisateur</h1>
             </div>
             
             <div class="welcome-text">
@@ -40,10 +40,19 @@
         <div class="right-panel">
             <div class="login-header">
                 <h2>Connexion à votre compte</h2>
-                <p>Entrez vos identifiants pour accéder à votre espace d'echange</p>
+                <p>Entrez vos identifiants pour vous inscrire et obtenir un espace personnel d'echange</p>
             </div>
             
             <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Votre nom d'utilisateur">
+                    </div>
+                    <div class="error-message" id="usernameError">L'utilisateur doit au moin contenir 6 caracteres</div>
+                </div>
+
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <div class="input-with-icon">
@@ -65,8 +74,9 @@
                 <button type="submit" class="btn btn-primary" id="loginBtn">Se connecter</button>
                 
                 <div class="login-links">
-                    <a href="/" id="admin">Se connecter en tant qu'Admin</a>
-                    <a href="/signUp" id="signUp">Créer un compte</a>
+                    <a href="#" id="resetPassword">Mot de passe oublié ?</a>
+                    <a href="#" id="ssoLogin">Connexion SSO</a>
+                    <a href="#" id="signUp">Créer un compte</a>
                 </div>
             </form>
             

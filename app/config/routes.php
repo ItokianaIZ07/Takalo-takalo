@@ -4,6 +4,7 @@ use app\controllers\AdminController;
 use app\controllers\CategoryController;
 use app\controllers\ObjetController;
 use app\controllers\ImageController;
+use app\controllers\UserController;
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
 use flight\net\Router;
@@ -146,6 +147,18 @@ $router->group('', function(Router $router) use ($app) {
 
     $router->get('/login-user', function() use($app){
         $app->render('login-user', []);
+    });
+
+    $router->get('/signUp', function() use($app){
+        $app->render('signUp', []);
+    });
+
+    $router->get('/validation-signUp', function() use($app){
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        UserController::addUser($username, $email, $password);
     });
 
     $router->get('/*', function() use($app){
