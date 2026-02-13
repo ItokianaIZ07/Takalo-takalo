@@ -38,3 +38,16 @@ JOIN users u1 ON o1.idUser = u1.id
 JOIN users u2 ON o2.idUser = u2.id
 JOIN Category c1 ON o1.idCategorie = c1.id
 JOIN Category c2 ON o2.idCategorie = c2.id;
+
+INSERT INTO Proposition (idObject1, idObject2, Status) VALUES
+-- Échange 1: Vélo de Brandon (id3) contre iPhone de Sophie (id5) -> terminé
+(3, 5, 'termine'),
+
+-- Échange 2: Ordinateur HP de Brandon (id1) contre MacBook de Sophie (id2) -> terminé
+(1, 2, 'termine'),
+
+-- Échange 3: Vélo de Brandon (id3) contre Samsung de Lucas (id4) -> en attente
+(3, 4, 'en_attente'),
+
+-- Échange 4: Ordinateur HP de Brandon (id1) contre Samsung de Lucas (id4) -> en attente
+(1, 4, 'en_attente');

@@ -26,3 +26,4 @@ INSERT INTO Objet (idCategorie, idUser, nomObjet, description, prix_estimatif) V
 (3, 3, 'Téléphone Samsung Galaxy S21', 'Écran intact, fonctionne parfaitement', 900000),
 
 (3, 2, 'iPhone 12', '64Go, état correct', 1100000);
+
