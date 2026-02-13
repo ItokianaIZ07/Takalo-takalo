@@ -34,6 +34,12 @@ class UserModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getIdByEmail(String $email){
+        $stmt = $this->db->prepare("SELECT id FROM users WHERE email=?");
+        $stmt->execute([$email]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     private function hash_password($password){
         return password_hash($password, PASSWORD_DEFAULT);
     }

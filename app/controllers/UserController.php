@@ -40,4 +40,10 @@ class UserController{
         $users = $UserModel->getAll();
         return $users;
     }
+
+    public static function getId($email){
+        $UserModel = new UserModel(Flight::db());
+        $user = $UserModel->getIdByEmail($email);
+        return $user;
+    }
 }
