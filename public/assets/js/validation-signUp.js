@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function submit(){
         const fd = new FormData(loginForm);
-        const response = await fetch("/validation-signUp", {
+        const response = await fetch("/validate-signUp", {
             body: fd,
             method: "POST"
         });
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let isValid = true;
 
         // Validation de l'username
-        if (!validateEmail(usernameInput.value)) {
+        if (!validateUsername(usernameInput.value)) {
             showError(usernameInput, usernameError, 'Le nom d\'utilisateur doit contenir au moins 4 caracteres');
             isValid = false;
         } else {

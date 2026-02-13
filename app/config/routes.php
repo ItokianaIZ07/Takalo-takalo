@@ -153,16 +153,18 @@ $router->group('', function(Router $router) use ($app) {
         $app->render('signUp', []);
     });
 
-    $router->get('/validation-signUp', function() use($app){
+    $router->post('/validate-signUp', function() use($app){
         $username = $_POST["username"];
         $email = $_POST["email"];
         $password = $_POST["password"];
 
         UserController::addUser($username, $email, $password);
-    });
-
-    $router->get("/user-home", function() use($app){
-        $app->render('user-model', []);
+            session_start();
+            $_SESSION["user"] = UserController::getByEmail($email)[0]['id'];
+            echo json_encode([
+                "success"=>true,
+                "error"=>false
+            ]);
     });
 
     $router->get('/*', function() use($app){

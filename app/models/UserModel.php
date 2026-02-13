@@ -13,8 +13,8 @@ class UserModel{
     }
 
     public function addUser($userName, $email, $password){
-        $stmt = $this->db->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?");
-        $stmt->execute([$userName, $email, hash_password($password)]);
+        $stmt = $this->db->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
+        $stmt->execute([$userName, $email, $this->hash_password($password)]);
     }
 
     public function removeUser($id){
