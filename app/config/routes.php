@@ -167,6 +167,10 @@ $router->group('', function(Router $router) use ($app) {
             ]);
     });
 
+    $router->get("/user-home", function() use($app){
+        $app->render('user-model', []);
+    });
+
     $router->get('/*', function() use($app){
         $app->render('404', []);
     });
