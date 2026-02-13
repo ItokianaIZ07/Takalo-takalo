@@ -46,12 +46,12 @@ TODOLIST (FRONTOFFICE(utilisateur)):
                 - views : fiche-object(Afficher les informations d'un object)
         - Propostion d'echange :
             - Base :
-                - Table : Proposition(id, idObject1, idObject2, Status)
-                - views : InfoProposition (proposition JOIN object JOIN User)
+                - Table : Proposition(id, idObject1, idObject2, Status) (Brandon)
+                - views : InfoProposition (proposition JOIN object JOIN User) (Brandon)
             - Model :
-                - Page et fonction : PropostionModel(findAllProposition, findPropositionById, findInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition)
+                - Page et fonction : PropostionModel(findAllProposition, findPropositionById, findInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition) (Brandon)
             - Controller :
-                - Page et fonction : PropositionController(getAllProposition, getPropositionById, getInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition)
+                - Page et fonction : PropositionController(getAllProposition, getPropositionById, getInfoProposition, acceptProposition, removeProposition, declineProposition, updateProposition) (Brandon)
             - Integration :
                 - views : fiche-proposition(Fiche pour la proposition d'echange d'un object)
             - Design : 
