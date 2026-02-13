@@ -48,9 +48,7 @@ $router->group('', function(Router $router) use ($app) {
         ]);
     });
 
-        // Route pour afficher les objets avec leurs images
     $router->get('/admin-objects', function() use($app){
-        // Récupérer tous les objets
         $objects = ObjetController::getAllObject();
         
         // Pour chaque objet, récupérer ses images
@@ -68,18 +66,15 @@ $router->group('', function(Router $router) use ($app) {
         ]);
     });
 
-        // Route pour ajouter un nouvel objet
     $router->post('/admin-object-create', function() use($app){
         $id_category = $_POST["id_category"];
         $name = $_POST["name"];
         $description = $_POST["description"];
         $prix_estimatif = $_POST["prix_estimatif"];
-        $id_user = $_SESSION["admin"] ?? 1; // Utiliser l'ID admin ou un ID par défaut
+        $id_user = $_SESSION["admin"] ?? 1; 
         
-        // Ajouter l'objet
         ObjetController::addnewObject($id_category, $name, $description, $prix_estimatif, $id_user);
         
-        // Récupérer l'ID du dernier objet ajouté
         $objet = ObjetController::getById($name);
         $id_objet = $objet[0]['idObjet'] ?? $objet[0]['id_category'];
         
@@ -91,16 +86,12 @@ $router->group('', function(Router $router) use ($app) {
         $app->redirect('/admin-objects');
     });
 
-        // Route pour supprimer un objet
     $router->get('/admin-objects-delete/@id', function($id) use($app){
-        // Implémenter la suppression dans ObjetController
         ObjetController::removeObject($id);
         $app->redirect('/admin-objects');
     });
     
-    // Route pour modifier un objet
     $router->post('/admin-object-update/@id', function($id) use($app){
-        // Implémenter la modification dans ObjetController
         // ObjetController::updateObject($id, $_POST);
         $app->redirect('/admin-objects');
     });
@@ -127,7 +118,7 @@ $router->group('', function(Router $router) use ($app) {
         $app->redirect('/admin-categories');
     });
 
-        // Route pour récupérer les objets par catégorie (API)
+    // Route pour récupérer les objets par catégorie (API)
     $router->get('/api/objects/by-category/@id_category', function($id_category) use($app){
         $objects = ObjetController::getByCategory($id_category);
         foreach ($objects as &$object) {
@@ -139,15 +130,12 @@ $router->group('', function(Router $router) use ($app) {
     });
 
 
-        // Route pour récupérer les détails d'un objet avec ses images
     $router->get('/api/object/@id', function($id) use($app){
-        // À implémenter : ObjetController::getById($id)
         // $object = ObjetController::getById($id);
         // $images = ImageController::getById($id);
         header('Content-Type: application/json');
         echo json_encode(['object' => $object ?? [], 'images' => $images ?? []]);
     });
-
 
 
     $router->get('/logout', function() use($app){
