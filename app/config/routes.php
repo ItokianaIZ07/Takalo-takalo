@@ -139,10 +139,15 @@ $router->group('', function(Router $router) use ($app) {
     });
 
 
-    $router->get('/logout', function() use($app){
+    $router->get('/logout/@var', function($var) use($app){
         session_start();
-        session_destroy();
-        $app->redirect('/');
+        if($var === "admin"){
+            unset($_SESSION["admin"]);
+            $app->redirect('/');
+        }else{
+            unset($_SESSION["user"]);
+            $app->redirect('/login-user');
+        }
     });
 
     $router->get('/login-user', function() use($app){
