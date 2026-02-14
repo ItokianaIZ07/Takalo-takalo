@@ -177,3 +177,61 @@ body {
     background: var(--light-color);
     padding: 30px;
 }
+
+/* Conteneur profil cliquable */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Le menu déroulant */
+.profile-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    min-width: 180px;
+    display: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Quand on ajoute la classe .show */
+.profile-dropdown.show {
+    display: block;
+    animation: dropdownFade 0.2s ease-out;
+}
+
+/* Items du menu */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f2f2f2;
+}
+
+/* Petite animation */
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
