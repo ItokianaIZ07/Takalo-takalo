@@ -51,7 +51,7 @@ $contentPath = __DIR__ . '/' . $content . '.php';
                     <div class="user-name">Admin User</div>
 
                     <div class="profile-dropdown" id="profileDropdown">
-                        <a href="/logout" class="dropdown-item">
+                        <a href="/logout/admin" class="dropdown-item">
                             <i class="fas fa-sign-out-alt"></i>
                             Déconnexion
                         </a>

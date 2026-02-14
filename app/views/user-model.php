@@ -23,6 +23,7 @@ $contentPath = __DIR__ . '/' . $content . '.php';
     <!-- Ton CSS -->
     <link rel="stylesheet" href="/assets/css/user-model.css">
     <link rel="stylesheet" href="/assets/css/<?= $content ?>.css">
+    <script src="/assets/js/user-model.js" defer></script>
 </head> 
 <body>
 
@@ -37,7 +38,7 @@ $contentPath = __DIR__ . '/' . $content . '.php';
         <div class="user-name"><?php echo $user["username"] ?? "Utilisateur"; ?></div>
 
         <div class="profile-dropdown" id="profileDropdown">
-            <a href="/logout" class="dropdown-item">
+            <a href="/logout/user" class="dropdown-item">
                 <i class="fas fa-sign-out-alt"></i>
                 Déconnexion
             </a>
